@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>RedBank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- title -->
+
+  <section style="padding-bottom: 10px;" id="title">
+
+    <div class="nav-container container-fluid">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="">RedBank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <% for (let [key, value] of Object.entries(nav_content)) { %>
+
+            <% if (key==="Profile"){ %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%- value[1] %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item nav-link" href=<%- value[0] %>>Profile</a>
+                <a class="dropdown-item nav-link" href="#">Logout</a>
+              </div>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href=<%- value %>><%- key %></a>
+            </li>
+            <% } %>
+
+            <% } %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- register -->
+
+  <section id="register">
+
+    <h4>Sign Up</h4>
+
+    <div class="signup">
+
+      <form class="signup-form" action="/register" method="POST">
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="">First Name</label>
+            <input required name="fname" type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="">Last Name</label>
+            <input required name="lname" type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input required name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input required name="password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          </div>
+        </div>
+
+        <div style="text-align: left" style="text-align: left" class="form-group ">
+          <div class="form-check form-check-inline">
+            <input required name="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
+            <label class="form-check-label" for="inlineRadio1">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input required name="gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Phone no.</label>
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <input required name="phone" class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">City</label>
+            <select required name="city" id="inputState" class="form-control">
+              <option selected value="Indore">Indore</option>
+              <option value="Dhar">Dhar</option>
+              <option value="Bhopal">Bhopal</option>
+              <option value="Ratlam">Ratlam</option>
+              <option value="Gwalior">Gwalior</option>
+              <option value="Jabalpur">Jabalpur</option>
+              <option value="Sehore">Sehore</option>
+              <option value="Dewas">Dewas</option>
+              <option value="Khandwa">Khandwa</option>
+              <option value="Ujjain">Ujjain</option>
+              <option value="Khargone">Khargone</option>
+              <option value="Shajapur">Shajapur</option>
+              <option value="Shivpuri">Shivpuri</option>
+              <option value="Vidisha">Vidisha</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputState">Blood Group</label>
+            <select required name="BG" id="inputState" class="form-control">
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="A1+">A1+</option>
+              <option value="A1-">A1-</option>
+              <option value="A1B+">A1B+</option>
+              <option value="A1B-">A1B-</option>
+              <option value="A2+">A2+</option>
+              <option value="A2-">A2-</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="padding-top:20px; text-align: center;" class="search-btn download-button">
+          <button type="submit" class="btn btn-outline-danger">Sign up</button>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Sign up</button> -->
+      </form>
+    </div>
+
+    <p style="text-align:center; margin-top:20px;">Already have an account? <a style="color: #bf282f;" href="/login">Login</a></p>
+
+
+
+  </section>
+
+  <!-- footer -->
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid">
+      <i class="social-icon fab fa-facebook-f"></i>
+      <i class="social-icon fab fa-twitter"></i>
+      <i class="social-icon fab fa-instagram"></i>
+      <i class="social-icon fas fa-envelope"></i>
+      <p>© Copyright 2021 RedBank</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

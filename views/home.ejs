@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>RedBank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <section id="title">
+
+    <!-- nav-bar -->
+
+    <div class="nav-container container-fluid">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="">RedBank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+
+            <% for (let [key, value] of Object.entries(nav_content)) { %>
+
+            <% if (key==="Profile"){ %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%- value[1] %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item nav-link" href=<%- value[0] %>>Profile</a>
+                <a class="dropdown-item nav-link" href="/logout" role="button">Logout</a>
+              </div>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href=<%- value %>><%- key %></a>
+            </li>
+            <% } %>
+
+            <% } %>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- title -->
+
+    <div class="title-container container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>You are somebody's type, find your match.</h1>
+
+          <form class="search" action="/" method="POST">
+            <div class="row">
+              <div class="col-lg-4">
+                <label style="color: #9D9D9D;" for="">City</label><br>
+                <div style="padding-top:20px;" class="btn-group dropdown">
+                  <select name="city" class="form-select" aria-label="Default select example">
+                    <option selected value="Indore">Indore</option>
+                    <option value="Dhar">Dhar</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Ratlam">Ratlam</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Jabalpur">Jabalpur</option>
+                    <option value="Sehore">Sehore</option>
+                    <option value="Dewas">Dewas</option>
+                    <option value="Khandwa">Khandwa</option>
+                    <option value="Ujjain">Ujjain</option>
+                    <option value="Khargone">Khargone</option>
+                    <option value="Shajapur">Shajapur</option>
+                    <option value="Shivpuri">Shivpuri</option>
+                    <option value="Vidisha">Vidisha</option>
+                  </select> <br>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <label style="color: #9D9D9D;" for="">Blood Group</label><br>
+                <div style="padding-top:20px;" class="btn-group dropdown">
+                  <select name="BG" class="form-select" aria-label="Default select example">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="A1+">A1+</option>
+                    <option value="A1-">A1-</option>
+                    <option value="A1B+">A1B+</option>
+                    <option value="A1B-">A1B-</option>
+                    <option value="A2+">A2+</option>
+                    <option value="A2-">A2-</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-lg-4">
+                <label style="color: #9D9D9D;" for="">Search</label><br>
+                <div style="padding-top:20px;" class="search-btn download-button">
+                  <button style="height:32px;" type="submit" class="btn btn-outline-danger">Search</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+        <div class="col-lg-6">
+          <img class="img1" src="images/img25.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- blood facts -->
+
+  <section id="blood-facts">
+    <div id="testimonial-carousel" class="carousel slide" data-ride="false" data-pause-"hover">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h2>One pint of blood can save upto three lives.</h2>
+          <img class="fact-img" src="images/img26.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <h2 class="testimonial-text">10 pints: amount of blood in the body of an average human.</h2>
+          <img class="fact-img" src="images/img21.png" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <h2 class="testimonial-text">About 1 in 7 people entering a hospital need blood.</h2>
+          <img class="fact-img" src="images/img27.jpg" alt="">
+
+        </div>
+
+      </div>
+      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="steps-to-donate">
+    <img class="steps-img" src="images/img28.png" alt="">
+  </section>
+
+  <!-- footer -->
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid">
+      <i class="social-icon fab fa-facebook-f"></i>
+      <i class="social-icon fab fa-twitter"></i>
+      <i class="social-icon fab fa-instagram"></i>
+      <i class="social-icon fas fa-envelope"></i>
+      <p>© Copyright 2021 RedBank</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

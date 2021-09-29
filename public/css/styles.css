@@ -1,0 +1,256 @@
+/* .container-fluid{
+  height: 650px;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 43px;
+} */
+.nav-container {
+  padding-left: 110px;
+  padding-right: 100px;
+  padding-top: 43px;
+}
+
+.btn-outline-danger {
+  border-color: #BF282F;
+  outline-color: #BF282F;
+}
+
+.title-container {
+  padding-left: 110px;
+  padding-right: 100px;
+}
+
+.nav-link, .navbar-brand {
+  color: #AB2428;
+}
+
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 25px;
+}
+
+nav a:hover {
+  color: #D82C38 !important;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: 'Montserrat-Light', sans-serif;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-item {
+  padding: 0 15px;
+}
+
+.img1 {
+  height: 100%;
+  width: 100%;
+}
+
+#title {
+  color: #BF282F;
+  background-color: #fff;
+  padding-bottom: 110px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 15%;
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+h2{
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: lighter;
+  margin-bottom: 5%;
+  color: #000;
+}
+
+h4{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+h5{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  /* text-align: left; */
+  color: #bf282f;
+  /* margin-left: 6.7%; */
+}
+
+h6{
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+select {
+  appearance: none;
+  outline: 0;
+  background: #fff;
+  background-image: none;
+  width: 100px;
+  height: 30px;
+  color: #BF282F;
+  cursor: pointer;
+  border: 1px solid #BF282F;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.search{
+  padding-top: 70px;
+}
+
+#blood-facts{
+  color: #Fff;
+  background-color: #EF8172;
+  text-align: center;
+}
+
+.carousel-item{
+  padding: 7% 15%;
+}
+
+.fact-img{
+  margin-top: 50px;
+  height: 200px;
+  width: 210px;
+  border-radius: 100%;
+}
+
+.steps-img{
+  height: 730px;
+  width: 900px;
+}
+
+#steps-to-donate{
+  padding-left: 22%;
+}
+
+#footer{
+  color: #fff;
+  background-color: #ef8172;
+  text-align: center;
+  padding: 5% 15%;
+}
+
+.social-icon{
+margin: 20px 15px;
+}
+
+.social-icon:hover{
+color: #000000;
+}
+
+#list{
+  text-align: center;
+  padding-top: 8%;
+  padding-left: 15%;
+  padding-bottom: 8%;
+  padding-right: 15%;
+}
+
+.table{
+  width: 100%;
+}
+
+.list-div{
+  text-align: center;
+}
+
+.giphy{
+  width: 40%;
+}
+
+#register{
+  /* text-align: center; */
+  padding-top: 3%;
+  padding-bottom: 4%;
+}
+
+hr{
+  color: #BF282F;
+  width: 85%;
+  border-width: 2px;
+}
+
+.signup-form{
+  width: 70%;
+  margin-top: 5%;
+}
+
+.signup{
+  padding-left: 23%;
+}
+
+#profile{
+  padding-top: 3%;
+  padding-bottom: 5%;
+}
+
+.donate{
+  /* padding-top: 4%; */
+  padding-left: 8%;
+  padding-bottom: 3%;
+  text-align: left;
+}
+
+.before-donation{
+  padding-top: 6%;
+  padding-bottom: 5%;
+}
+
+.prepare-list{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* .donate{
+  padding-left: 6.7%;
+  text-align: left;
+} */
+
+.donate-button:hover{
+  background-color: #bf282f;
+}
+
+.prepare-img-div{
+  padding-top: 2%;
+  padding-right: 7%;
+  text-align: right;
+}
+
+.prepare-img{
+  width: 65%;
+}
+
+.thanks-img{
+  margin-right: 30px;
+  width: 50%;
+}
