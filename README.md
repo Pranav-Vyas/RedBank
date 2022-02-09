@@ -23,7 +23,6 @@ for greater cause according to the location of the user.
 Node.js and MongoDB should be installed on the computer.
 
 ### to run server:
-- cd backend
 - npm install
 - node app.js
 
