@@ -18,6 +18,15 @@ for greater cause according to the location of the user.
   - Express.js
   - MongoDB
   - Passport.js
+
+## Screenshots:
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img1.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img2.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img7.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img6.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img3.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img4.png" width="700" height="400"/>
+<img alt="👋" src="https://github.com/Pranav-Vyas/RedBank/blob/main/images/img5.png" width="700" height="400"/>
   
 ## Prerequisites to run:
 Node.js and MongoDB should be installed on the computer.
