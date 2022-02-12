@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
+// const LocalStrategy = require('passport-local').Strategy;
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const bcrypt = require("bcrypt");
@@ -17,7 +18,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
+ 
 app.use(session({
   secret: "Expecto Patronum",
   resave: false,
@@ -51,6 +52,30 @@ userSchema.plugin(passportLocalMongoose, {
 });
 
 const User = new mongoose.model("User", userSchema);
+
+// function initialize(passport, getUserByEmail, getUserById) {
+//   const authenticateUser = async (email, password, done) => {
+//     const user = getUserByEmail(email)
+//     if (user == null) {
+//       return done(null, false, { message: 'No user with that email' })
+//     }
+
+//     try {
+//       if (await bcrypt.compare(password, user.password)) {
+//         return done(null, user)
+//       } else {
+//         return done(null, false, { message: 'Password incorrect' })
+//       }
+//     } catch (e) {
+//       return done(e)
+//     }
+//   }
+
+//   passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
+//   passport.serializeUser(User.serializeUser());
+//   passport.deserializeUser(User.deserializeUser());
+
+// }
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
@@ -107,6 +132,7 @@ app.get("/logout",(req,res)=>{
 
 app.get("/secret", (req, res) => {
   if (req.isAuthenticated()) {
+    console.log("yes authenticated");
     User.findOne({
       email: req.user.email
     }, (err, foundUser) => {
@@ -188,37 +214,49 @@ app.post("/login", (req, res) => {
     password: req.body.password
   });
 
-  req.login(curUser, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        passport.authenticate("local")(req,res,()=>{
-          var today = new Date();
-          var pre = new Date(req.user.last_donated);
-          const diffTime = Math.abs(today - pre);
-          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-          if (diffDays>=84){
-            User.updateOne({email:req.user.email},{status:false},(err)=>{
-              if(err){
-                console.log(err);
-              }else{
-                console.log("Successfully updated");
-              }
-            })
-            res.redirect("/secret");
-          } else {
-            User.updateOne({email:req.user.email},{status:true},(err)=>{
-              if(err){
-                console.log(err);
-              }else{
-                console.log("Successfully updated");
-              }
-            })
-            res.redirect("/secret");
-          }
+  passport.authenticate("local", {failureRedirect: '/login'})(req,res,()=>{
+    console.log("in passport authenticate");
+    console.log(req.user);
+    // req.login(curUser, function(err){
+    //   console.log("in login");
+    //   if (err) {
+    //     console.log(err);
+    //     res.redirect("/login");
+    //   } else {
+    //     console.log("in else passport");
+    //     console.log(req.user);
+    //   }
+    // })
+    var today = new Date();
+    var pre = new Date(req.user.last_donated);
+    const diffTime = Math.abs(today - pre);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    console.log(diffDays);
+    if (diffDays>=84){
+      User.updateOne({email:req.user.email},{status:false},(err)=>{
+        if(err){
+          console.log(err);
+        }else{
+          console.log("Successfully updated");
+        }
       })
+      res.redirect("/secret");
+    } else {
+      console.log("here");
+      console.log(req.user);
+      console.log("diffDays ",diffDays);
+      User.updateOne({email:req.user.email},{status:true},(err)=>{
+        if(err){
+          console.log(err);
+        }else{
+          console.log("Successfully updated");
+        }
+      })
+      res.redirect("/secret");
     }
   })
+
+  
 })
 
 app.post("/secret", (req, res) => {
